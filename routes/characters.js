@@ -1,6 +1,6 @@
-const express = require("express");
-const router = express.Router();
-const axios = require("axios");
+// const express = require("express");
+// const router = express.Router();
+// const axios = require("axios");
 
 // router.get("/characters", async (req, res) => {
 //   try {
@@ -25,16 +25,16 @@ const axios = require("axios");
 //   }
 // });
 
-router.get("/comics/:characterId", async (req, res) => {
-  try {
-    // console.log(req.params);
-    const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics/${req.params.characterId}?apiKey=${process.env.API_KEY}`
-    );
-    res.json(response.data);
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+// router.get("/comics/:characterId", async (req, res) => {
+//   try {
+//     // console.log(req.params);
+//     const response = await axios.get(
+//       `https://lereacteur-marvel-api.herokuapp.com/comics/${req.params.characterId}?apiKey=${process.env.API_KEY}`
+//     );
+//     res.json(response.data);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// });
 
-module.exports = router;
+// module.exports = router;
