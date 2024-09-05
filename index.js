@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -23,6 +23,18 @@ app.get("/", (req, res) => {
   }
 });
 
+app.get("/characters", async (req, res) => {
+  try {
+    const response = await axios.get(
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}`
+    );
+    // console.log(response.data);
+    res.json(response.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 app.use(charRouter);
 app.use(comicsRouter);
 
@@ -34,6 +46,6 @@ app.get("*", (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("Server is on 🔥");
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server is on 🔥 on port =>" + process.env.PORT);
 });
