@@ -34,7 +34,6 @@ app.get("/characters", async (req, res) => {
     );
     // console.log(response.data);
     res.json(response.data);
-    console.log(name);
   } catch (error) {
     console.log(error.message);
   }
